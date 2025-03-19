@@ -170,7 +170,7 @@
             <mxPoint x="-75.60000000000001" y="170" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="JwTfOTong-YGTReolqfG-17" value="durum VARCHAR(20) NOT NULL&#xa;CHECK (&#39;onaylandı&#39;, &#39;beklemede&#39;, &#39;iptal edildi&#39;)" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;" vertex="1" parent="JwTfOTong-YGTReolqfG-21">
+        <mxCell id="JwTfOTong-YGTReolqfG-17" value="durum VARCHAR(20) NOT NULL &#xa;CHECK (&#39;boş&#39;, &#39;dolu&#39;, &#39;rezerve&#39;, &#39;bakımda&#39;)&#xa;" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;" vertex="1" parent="JwTfOTong-YGTReolqfG-21">
           <mxGeometry x="31.5" y="120" width="277.2" height="30" as="geometry">
             <mxRectangle width="220" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -249,7 +249,7 @@
             <mxRectangle width="270" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="JwTfOTong-YGTReolqfG-35" value="durum char(50) NOT NULL" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;" vertex="1" parent="JwTfOTong-YGTReolqfG-22">
+        <mxCell id="JwTfOTong-YGTReolqfG-35" value="durum VARCHAR(20) NOT NULL &#xa;CHECK (&#39;onaylandı&#39;, &#39;beklemede&#39;, &#39;iptal edildi&#39;)&#xa;" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;" vertex="1" parent="JwTfOTong-YGTReolqfG-22">
           <mxGeometry x="30" y="180" width="270" height="30" as="geometry">
             <mxRectangle width="270" height="30" as="alternateBounds" />
           </mxGeometry>
