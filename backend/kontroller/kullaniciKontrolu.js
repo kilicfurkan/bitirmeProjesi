@@ -87,7 +87,7 @@ exports.kullaniciGuncelle = async (req, res) => {
      .input("telefon", telefon)
      .input("rol", rol)
      .input("email", email)
-     .query("UPDATE Kullanicilar SET kullanici_adi = @kullanici_adi, isim = @isim, sifre = COALESCE(@sifre,sifre), telefon = @telefon, rol = @rol WHERE email = @email")
+     .query("UPDATE Kullanicilar SET kullanici_adi = COALESCE(@kullanici_adi,kullanici_adi) ,isim = COALESCE(@isim,isim), sifre = COALESCE(@sifre,sifre), telefon = COALESCE(@telefon,telefon), rol = COALESCE(@rol,rol) WHERE email = @email")
 
      res.json({mesaj : "Kullanıcı başarıyla güncellendi."});
   } catch (error) {
