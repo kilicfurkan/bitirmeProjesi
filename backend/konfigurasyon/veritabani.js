@@ -1,8 +1,8 @@
 require('dotenv').config();
 const sql = require('mssql');
 
-console.log('DB Host:', process.env.DB_HOST);  // Doğru okunduğunu kontrol edin
-console.log('DB Port:', process.env.DB_PORT);  // Portun doğru olduğunu kontrol edin
+console.log('DB Host:', process.env.DB_HOST);
+console.log('DB Port:', process.env.DB_PORT);
 
 const config = {
     user: process.env.DB_USER || 'furkandeneme',
