@@ -1,0 +1,13 @@
+.homepage {
+    height: 100vh;
+    background-image: url("/images/background.jpeg"); /* Resmi doğru yolu ile ekledik */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+}
