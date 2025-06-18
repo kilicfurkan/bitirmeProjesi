@@ -6,8 +6,8 @@ import HomePage from '../components/HomePage';
 import Navbar from '../components/Navbar';
 import AdminLogin from '../components/AdminLogin';
 import AdminPanel from '../components/AdminPanel';
-// import About from '../components/About';
-// import Contact from '../components/Contact';
+import About from '../components/About';
+import Contact from '../components/Contact';
 
 const Dashboard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -19,8 +19,8 @@ const Dashboard = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/menu" element={<Menu />} />
-        {/* <Route path="/about" element={<About />} /> */}
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/admin/login" element={<AdminLogin setIsAuthenticated={setIsAuthenticated} />} />
         <Route
           path="/admin"

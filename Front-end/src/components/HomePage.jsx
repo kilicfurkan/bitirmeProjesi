@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-    AppBar,
-    Toolbar,
     Typography,
     Button,
     Container,
@@ -14,18 +12,19 @@ import {
 import { styled } from '@mui/material/styles';
 import { Restaurant, AccessTime, Phone } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import "../styles/HomePage.css";
 
-// Stil tanımlamaları
+// HERO SECTION
 const HeroSection = styled(Box)(({ theme }) => ({
     position: 'relative',
     width: '100%',
-    height: '100vh', // Ekranın tam yüksekliği
+    height: '100vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     color: 'white',
     overflow: 'hidden',
+    padding: 0,
+    margin: 0,
     '&::before': {
         content: '""',
         position: 'absolute',
@@ -34,10 +33,10 @@ const HeroSection = styled(Box)(({ theme }) => ({
         width: '100%',
         height: '100%',
         backgroundImage: 'url("/images/background.jpeg")',
-        backgroundSize: 'cover', // Resmi tamamen kaplama
+        backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat', // Resmin tekrarlanmasını engelleme
-        filter: 'brightness(0.6)', // Hafif karartma
+        backgroundRepeat: 'no-repeat',
+        filter: 'brightness(0.6)',
         zIndex: -1,
     }
 }));
@@ -50,6 +49,7 @@ const HeroContent = styled(Box)(({ theme }) => ({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     borderRadius: theme.spacing(1),
     maxWidth: '800px',
+    margin: '0 auto'
 }));
 
 const FeatureCard = styled(Card)(({ theme }) => ({
@@ -65,135 +65,163 @@ const FeatureCard = styled(Card)(({ theme }) => ({
     border: '1px solid #e0d5c1',
 }));
 
-const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-    backgroundColor: 'rgba(20, 20, 20, 0.9)',
-}));
-
 const AboutSection = styled(Box)(({ theme }) => ({
     padding: theme.spacing(10, 0),
     backgroundColor: '#f8f5f0',
-    backgroundImage: 'url("/api/placeholder/1400/600")', // Geniş bir arka plan resmi ekleyin // Tarihi dokuyu gösteren arkaplan
+    backgroundImage: 'url("/images/about-bg.jpeg")',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundBlendMode: 'overlay',
-    position: 'relative', // Üzerine gelen içeriğin görünmesini sağlar
+    position: 'relative',
+    overflow: 'hidden'
 }));
 
 const HomePage = () => {
     return (
-        <>
-
-            {/* Hero Bölümü */}
+        <Box sx={{ width: '100%', maxWidth: '100vw', overflowX: 'hidden' }}>
+            {/* HERO */}
             <HeroSection>
                 <HeroContent>
-                    <Typography variant="h2" component="h1" gutterBottom sx={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 'bold' }}>
+                    <Typography
+                        variant="h2"
+                        component="h1"
+                        gutterBottom
+                        sx={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 'bold' }}
+                    >
                         PERA PALACE
                     </Typography>
-                    <Typography variant="h5" gutterBottom sx={{ fontStyle: 'italic', mb: 4 }}>
+                    <Typography
+                        variant="h5"
+                        gutterBottom
+                        sx={{ fontStyle: 'italic', mb: 4 }}
+                    >
                         Tarihin ve lezzetin buluştuğu eşsiz mekan
                     </Typography>
 
-                    <Button variant="contained" color="primary" size="large" sx={{ mr: 2, backgroundColor: '#c9a66b', '&:hover': { backgroundColor: '#b38d50' } }}>
+                    <Button
+                        component={Link}
+                        to="/reservation"
+                        variant="contained"
+                        size="large"
+                        sx={{
+                            mr: 2,
+                            backgroundColor: '#c9a66b',
+                            '&:hover': { backgroundColor: '#b38d50' },
+                        }}
+                    >
                         REZERVASYON YAP
                     </Button>
 
-
-                    <Button variant="outlined" sx={{ color: 'white', borderColor: 'white', '&:hover': { borderColor: '#c9a66b', color: '#c9a66b' } }}>
+                    <Button
+                        component={Link}
+                        to="/menu"
+                        variant="outlined"
+                        sx={{
+                            color: 'white',
+                            borderColor: 'white',
+                            '&:hover': {
+                                borderColor: '#c9a66b',
+                                color: '#c9a66b',
+                            },
+                        }}
+                    >
                         MENÜYÜ İNCELE
                     </Button>
                 </HeroContent>
             </HeroSection>
 
-            {/* Özellikler Bölümü */}
+            {/* ÖZELLİKLER */}
             <Container sx={{ py: 8 }}>
-                <Typography variant="h3" component="h2" align="center" gutterBottom sx={{ fontFamily: 'Cormorant Garamond, serif', color: '#333', mb: 6 }}>
+                <Typography
+                    variant="h3"
+                    component="h2"
+                    align="center"
+                    gutterBottom
+                    sx={{ fontFamily: 'Cormorant Garamond, serif', color: '#333', mb: 6 }}
+                >
                     PERA PALACE'A HOŞGELDİNİZ
                 </Typography>
 
                 <Grid container spacing={4}>
-                    <Grid item xs={12} md={4}>
-                        <FeatureCard>
-                            <CardMedia
-                                component="img"
-                                height="200"
-                                image="/api/placeholder/400/200"
-                                alt="Tarihimiz"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                                    Zengin Tarihimiz
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    1890 yılında kurulan Era Palace, asırlık geçmişi ile eşsiz bir atmosfer sunuyor. Tarihi dokusu ve özgün mimarisi ile misafirlerine unutulmaz anlar yaşatıyor.
-                                </Typography>
-                            </CardContent>
-                        </FeatureCard>
-                    </Grid>
-
-                    <Grid item xs={12} md={4}>
-                        <FeatureCard>
-                            <CardMedia
-                                component="img"
-                                height="200"
-                                image="/api/placeholder/400/200"
-                                alt="Lezzetlerimiz"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                                    Eşsiz Lezzetler
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    Şeflerimizin özenle hazırladığı geleneksel ve modern tatların birleştiği menümüzde, en seçkin malzemelerle hazırlanan lezzetleri keşfedin.
-                                </Typography>
-                            </CardContent>
-                        </FeatureCard>
-                    </Grid>
-
-                    <Grid item xs={12} md={4}>
-                        <FeatureCard>
-                            <CardMedia
-                                component="img"
-                                height="200"
-                                image="/api/placeholder/400/200"
-                                alt="Atmosferimiz"
-                            />
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: 'Cormorant Garamond, serif' }}>
-                                    Büyüleyici Atmosfer
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    Tarihin ihtişamını yansıtan dekorasyonumuz ve özel aydınlatmalarımız ile her öğün, bir ziyafete dönüşüyor. Şehrin kalbinde saklı bir mücevher.
-                                </Typography>
-                            </CardContent>
-                        </FeatureCard>
-                    </Grid>
+                    {[
+                        {
+                            title: "Zengin Tarihimiz",
+                            text: "1890 yılında kurulan Pera Palace, asırlık geçmişi ile eşsiz bir atmosfer sunuyor.",
+                            img: "/images/history.jpg",
+                        },
+                        {
+                            title: "Eşsiz Lezzetler",
+                            text: "Şeflerimizin özenle hazırladığı geleneksel ve modern tatların birleşimini keşfedin.",
+                            img: "/images/flavors.jpg",
+                        },
+                        {
+                            title: "Büyüleyici Atmosfer",
+                            text: "Tarihi dekorasyon ve özel ambiyans ile unutulmaz bir deneyim yaşayın.",
+                            img: "/images/ambiance.jpg",
+                        },
+                    ].map((item, i) => (
+                        <Grid item xs={12} md={4} key={i}>
+                            <FeatureCard>
+                                <CardMedia
+                                    component="img"
+                                    height="200"
+                                    image={item.img}
+                                    alt={item.title}
+                                />
+                                <CardContent>
+                                    <Typography
+                                        gutterBottom
+                                        variant="h5"
+                                        component="div"
+                                        sx={{ fontFamily: 'Cormorant Garamond, serif' }}
+                                    >
+                                        {item.title}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary">
+                                        {item.text}
+                                    </Typography>
+                                </CardContent>
+                            </FeatureCard>
+                        </Grid>
+                    ))}
                 </Grid>
             </Container>
 
-            {/* Hakkımızda Bölümü */}
+            {/* HAKKIMIZDA */}
             <AboutSection>
                 <Container>
                     <Grid container spacing={6} alignItems="center">
                         <Grid item xs={12} md={6}>
-                            <Box sx={{ borderRadius: 2, overflow: 'hidden', boxShadow: 6 }}>
-                                <img src="/api/placeholder/600/400" alt="Era Palace İç Mekan" style={{ width: '100%', height: 'auto' }} />
+                            <Box sx={{ width: '100%', maxWidth: '100vw', borderRadius: 2, overflow: 'hidden', boxShadow: 6 }}>
+                                <img
+                                    src="/images/interior.jpg"
+                                    alt="Pera Palace İç Mekan"
+                                    style={{ width: '100%', height: 'auto', display: 'block' }}
+                                />
                             </Box>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <Typography variant="h3" component="h2" gutterBottom sx={{ fontFamily: 'Cormorant Garamond, serif', color: '#333' }}>
+                            <Typography
+                                variant="h3"
+                                component="h2"
+                                gutterBottom
+                                sx={{ fontFamily: 'Cormorant Garamond, serif', color: '#333' }}
+                            >
                                 Tarihimiz
                             </Typography>
                             <Typography variant="body1" paragraph>
-                                Era Palace, 1890 yılında şehrin önde gelen ailelerinden biri tarafından konak olarak inşa edilmiş, daha sonra 1950 yılında restore edilerek restoran olarak hizmet vermeye başlamıştır.
+                                Pera Palace, 1890 yılında konak olarak inşa edilmiş, 1950'de restoran olarak hizmet vermeye başlamıştır.
                             </Typography>
                             <Typography variant="body1" paragraph>
-                                Tarihi dokusunu ve mimari özelliklerini koruyarak, modern dokunuşlarla yenilenen mekanımız, şehrin kültürel mirasının en önemli parçalarından biridir.
+                                Modern dokunuşlarla yenilenen mekanımız, şehrin kültürel mirasının en önemli parçalarındandır.
                             </Typography>
-                            <Typography variant="body1" paragraph>
-                                Her köşesinde tarihin izlerini taşıyan Era Palace, misafirlerine sadece bir yemek deneyimi değil, aynı zamanda bir zaman yolculuğu sunmaktadır.
-                            </Typography>
-                            <Button variant="contained" sx={{ mt: 2, backgroundColor: '#c9a66b', '&:hover': { backgroundColor: '#b38d50' } }}>
+                            <Button
+                                component={Link}
+                                to="/about"
+                                variant="contained"
+                                sx={{ mt: 2, backgroundColor: '#c9a66b', '&:hover': { backgroundColor: '#b38d50' } }}
+                            >
                                 DAHA FAZLA BİLGİ
                             </Button>
                         </Grid>
@@ -201,8 +229,8 @@ const HomePage = () => {
                 </Container>
             </AboutSection>
 
-            {/* İletişim Bilgileri */}
-            <Box sx={{ bgcolor: '#2c2c2c', color: 'white', py: 4 }}>
+            {/* İLETİŞİM */}
+            <Box sx={{ width: '100%', maxWidth: '100vw', bgcolor: '#2c2c2c', color: 'white', py: 4 }}>
                 <Container>
                     <Grid container spacing={2} justifyContent="center">
                         <Grid item xs={12} md={4} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -221,15 +249,15 @@ const HomePage = () => {
                 </Container>
             </Box>
 
-            {/* Footer */}
+            {/* FOOTER */}
             <Box sx={{ bgcolor: '#1a1a1a', color: 'white', py: 3, textAlign: 'center' }}>
                 <Container>
                     <Typography variant="body2">
-                        &copy; {new Date().getFullYear()} Era Palace. Tüm Hakları Saklıdır.
+                        &copy; {new Date().getFullYear()} Pera Palace. Tüm Hakları Saklıdır.
                     </Typography>
                 </Container>
             </Box>
-        </>
+        </Box>
     );
 };
 

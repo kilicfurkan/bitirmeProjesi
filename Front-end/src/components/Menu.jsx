@@ -92,7 +92,7 @@ const DishItem = styled(ListItem)(({ theme }) => ({
 
 const MenuContentContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(6, 0),
-  backgroundImage: 'url("/api/placeholder/200/200")', // Tarihi dokuyu gösteren arkaplan
+  backgroundImage: 'url("/images/menu-bg.jpeg")', // Tarihi dokuyu gösteren arkaplan
   backgroundBlendMode: 'overlay',
   backgroundSize: '200px',
   backgroundRepeat: 'repeat',
@@ -160,21 +160,21 @@ const Menu = () => {
       description: "İki kişilik özel menü",
       price: "650 ₺",
       items: "Osmanlı Saray Çorbası, Zeytinyağlı Yaprak Sarma, Era Palace Kuzu Tandır, Baklava, Türk Kahvesi",
-      image: "/api/placeholder/400/300"
+      image: "/images/special-menu1.jpg"
     },
     {
       title: "TARİHİ LEZZETLER",
       description: "İki kişilik özel menü",
       price: "580 ₺",
       items: "Muhammara, Antep Fıstıklı Humus, Hünkar Beğendi, Kaymaklı Ekmek Kadayıfı, Türk Kahvesi",
-      image: "/api/placeholder/400/300"
+      image: "/images/special-menu2.jpg"
     },
     {
       title: "DENİZ TADI",
       description: "İki kişilik özel menü",
       price: "620 ₺",
       items: "Karides Kokteyl, Mevsim Salata, Domatesli Levrek Buğulama, Fırın Sütlaç, Şerbet",
-      image: "/api/placeholder/400/300"
+      image: "/images/special-menu3.jpg"
     },
   ];
 
@@ -199,7 +199,7 @@ const Menu = () => {
         <Container>
           {/* Özel Menüler */}
           <Typography variant="h4" component="h2" align="center" gutterBottom sx={{ fontFamily: 'Cormorant Garamond, serif', color: '#333', mb: 1 }}>
-            ÖZEL ERA PALACE MENÜLERİ
+            ÖZEL PERA PALACE MENÜLERİ
           </Typography>
           <Typography variant="body1" align="center" paragraph sx={{ mb: 6 }}>
             Özenle seçilmiş, şeflerimizin özel olarak hazırladığı menüler
@@ -207,11 +207,11 @@ const Menu = () => {
 
           <Grid container spacing={4} sx={{ mb: 8 }}>
             {specialMenus.map((menu, index) => (
-              <Grid item xs={12} md={4} key={index}>
+              <Grid item sx={{ flexBasis: '100%', maxWidth: '100%' }} key={index}>
                 <MenuCard>
                   <CardMedia
                     component="img"
-                    height="200"
+                    height="1000"
                     image={menu.image}
                     alt={menu.title}
                   />
@@ -294,7 +294,7 @@ const Menu = () => {
       <Box sx={{ bgcolor: '#1a1a1a', color: 'white', py: 3, textAlign: 'center' }}>
         <Container>
           <Typography variant="body2">
-            &copy; {new Date().getFullYear()} Era Palace. Tüm Hakları Saklıdır.
+            &copy; {new Date().getFullYear()} Pera Palace. Tüm Hakları Saklıdır.
           </Typography>
         </Container>
       </Box>
